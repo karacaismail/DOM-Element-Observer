@@ -1,0 +1,209 @@
+/* === Genel Reset ve Font === */
+:root {
+  --inspector-primary-color: #3B82F6; /* Mavi tonu */
+  --inspector-secondary-color: #10B981; /* Yeşil tonu */
+  --inspector-danger-color: #EF4444; /* Kırmızı tonu */
+  --inspector-warning-color: #F59E0B; /* Sarı/Turuncu tonu */
+  --inspector-gray-800: #1F2937;
+  --inspector-gray-700: #374151;
+  --inspector-gray-600: #4B5563;
+  --inspector-gray-500: #6B7280;
+  --inspector-gray-300: #D1D5DB;
+  --inspector-gray-200: #E5E7EB;
+  --inspector-gray-100: #F3F4F6;
+  --inspector-gray-50: #F9FAFB;
+  --inspector-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --inspector-monospace-font: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  /* Pencere kontrol butonlarının yeni boyutu (2 katı) */
+  --window-button-base-size: 12px; /* Orijinal macOS boyutu referansı */
+  --window-button-size: calc(var(--window-button-base-size) * 2); /* x2 Büyütme */
+  --window-icon-size-ratio: 0.5; /* İkonların buton içindeki oranı (0.5 = %50) */
+}
+
+/* === Hover İnceleme Modu Stili === */
+.dom-inspector-hover-overlay {
+  position: absolute;
+  z-index: 2147483643;
+  pointer-events: none;
+  display: none;
+  border: 2px dashed rgba(59, 130, 246, 0.8);
+  background-color: rgba(59, 130, 246, 0.15);
+  box-sizing: border-box;
+  transition: all 0.03s linear;
+}
+
+/* === Ana Panel Stilleri === */
+.dom-inspector-panel {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 350px;
+  background-color: white;
+  border: 1px solid var(--inspector-gray-300);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 2147483640;
+  font-family: var(--inspector-font-family);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--inspector-gray-700);
+  overflow: visible;
+  transition: box-shadow 0.2s ease-out, opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+.dom-inspector-panel.dragging {
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2), 0 15px 15px -10px rgba(0, 0, 0, 0.08);
+}
+
+.dom-inspector-header {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px 6px 15px; /* Üst ve alt padding azaltıldı, butonlar büyüdü */
+  background-color: var(--inspector-gray-100);
+  color: var(--inspector-gray-700);
+  border-bottom: 1px solid var(--inspector-gray-300);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  user-select: none;
+}
+.dom-inspector-header:hover { cursor: grab; }
+.dom-inspector-header.dragging { cursor: grabbing; }
+
+.dom-inspector-window-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Butonlar arası boşluk biraz arttı */
+  margin-right: auto;
+}
+
+.dom-inspector-window-button {
+  width: var(--window-button-size); /* CSS değişkeni ile boyut */
+  height: var(--window-button-size);
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1); /* Hafif bir border */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.dom-inspector-window-button svg.window-icon {
+  width: calc(var(--window-button-size) * var(--window-icon-size-ratio)); /* İkon boyutu da orantılı */
+  height: calc(var(--window-button-size) * var(--window-icon-size-ratio));
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.dom-inspector-header:hover .dom-inspector-window-button svg.window-icon,
+.dom-inspector-window-button:hover svg.window-icon { /* Buton hover'ında da ikon görünsün */
+  opacity: 0.7; /* Biraz daha belirgin */
+}
+.dom-inspector-window-button:active {
+    filter: brightness(0.8);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.dom-inspector-close-btn { background-color: #FF5F57; }
+.dom-inspector-close-btn:hover { filter: brightness(0.9); }
+.dom-inspector-close-btn svg.window-icon path { fill: #750c05; } /* Daha koyu iç ikon */
+
+.dom-inspector-minimize-btn { background-color: #FEBC2E; }
+.dom-inspector-minimize-btn:hover { filter: brightness(0.9); }
+.dom-inspector-minimize-btn svg.window-icon path { fill: #895B06; } /* Daha koyu iç ikon */
+
+.dom-inspector-expand-btn { background-color: #28C840; }
+.dom-inspector-expand-btn:hover { filter: brightness(0.9); }
+.dom-inspector-expand-btn svg.window-icon path { fill: #065C05; } /* Daha koyu iç ikon */
+
+
+.dom-inspector-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--inspector-gray-600);
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dom-inspector-content {
+  padding: 18px;
+  max-height: 450px;
+  overflow-y: auto;
+  background-color: white;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), padding 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), border 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dom-inspector-content[style*="display: none"] {
+    max-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    opacity: 0 !important;
+    border-top: none !important;
+    overflow: hidden !important;
+    pointer-events: none; /* Gizliyken etkileşim olmasın */
+}
+/* ... (CSS'in geri kalanı bir önceki mesajdaki gibi kalabilir, özellikle modal ve diğer iç panel stilleri) ... */
+/* Aşağıdaki stiller özellikle satır numaraları için güncellendi */
+
+.dom-inspector-modal-editor-area {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 25px 15px 25px;
+  position: relative;
+  overflow: hidden; /* Önemli: Bu scroll'u engeller, textarea'ya taşınmalı */
+  border: 1px solid var(--inspector-gray-300);
+  border-radius: 6px;
+  background-color: var(--inspector-gray-50);
+}
+.dom-inspector-line-numbers {
+  padding: 15px 0px 15px 15px; /* Sağ padding kaldırıldı, genişlik ile ayarlanacak */
+  width: 40px; /* Sabit genişlik */
+  font-family: var(--inspector-monospace-font);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--inspector-gray-500);
+  text-align: right;
+  user-select: none;
+  background-color: var(--inspector-gray-100);
+  border-right: 1px solid var(--inspector-gray-300);
+  overflow-y: hidden; /* Dikey scroll'u textarea ile senkronize et */
+  box-sizing: border-box;
+  /* writing-mode ve transform kaldırıldı */
+  display: none; /* Başlangıçta gizli, JSON için JS ile gösterilecek */
+}
+.dom-inspector-line-numbers .line-number-item {
+    display: block; /* Her numara kendi satırında */
+    padding-right: 10px; /* Numaralarla metin arasına boşluk */
+    box-sizing: border-box;
+    height: 1.65em; /* line-height ile aynı olmalı (yaklaşık) */
+    white-space: pre; /* Tek satırda kalmasını sağlar (uzun sayılar için) */
+}
+
+.dom-inspector-modal-textarea {
+  flex-grow: 1; /* Kalan alanı al */
+  width: calc(100% - 40px); /* Satır numarası alanı çıkarıldıktan sonra kalan genişlik (lineNumbers display:block ise) */
+  min-height: 300px;
+  padding: 15px;
+  /* Sol padding JS ile dinamik olarak ayarlanacak:
+     Eğer satır numaraları varsa: padding-left: 50px; (veya line-numbers genişliği + biraz boşluk)
+     Yoksa: padding-left: 15px;
+  */
+  border: none;
+  border-radius: 0;
+  font-family: var(--inspector-monospace-font);
+  font-size: 0.8rem;
+  line-height: 1.65; /* Satır numaraları ile aynı olmalı */
+  resize: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: var(--inspector-gray-800);
+  overflow-y: scroll; /* Dikey scroll her zaman görünsün */
+}
+.dom-inspector-modal-textarea:focus { outline: none; box-shadow: none; }
+
+/* ... (Geri kalan .dom-inspector-modal-actions ve diğer stiller aynı kalabilir) ... */
+/* CSS'in geri kalanını bir önceki tam koddan alın. */
+/* Sadece yukarıdaki --window-button-size, .dom-inspector-window-button, .dom-inspector-line-numbers, .line-number-item ve .dom-inspector-modal-textarea bölümlerini güncelleyin. */

@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "DOM Element Inspector",
+  "version": "1.1",
+  "description": "Tıklanan elementleri ve dinamik içerikleri kaydeden, sayfa içi panel ile çalışan araç",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "downloads"],
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    },
+    "default_title": "DOM Inspector Panelini Aç/Kapat"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}

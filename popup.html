@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Element Inspector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 320px;
+      margin: 0;
+      padding: 15px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-top: 0;
+      color: #333;
+    }
+
+    .controls {
+      display: flex;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      flex-grow: 1;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: #3367d6;
+    }
+
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+
+    button.stop {
+      background-color: #ea4335;
+    }
+
+    button.stop:hover {
+      background-color: #d33426;
+    }
+
+    button.export {
+      background-color: #34a853;
+    }
+
+    button.export:hover {
+      background-color: #2d9249;
+    }
+
+    .status {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .status.info {
+      background-color: #e8f0fe;
+      color: #1967d2;
+    }
+
+    .status.success {
+      background-color: #e6f4ea;
+      color: #137333;
+    }
+
+    .status.error {
+      background-color: #fce8e6;
+      color: #c5221f;
+    }
+
+    .stats {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #eee;
+    }
+
+    .stats p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .export-options {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .export-format {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+    }
+
+    .export-format input {
+      margin-right: 5px;
+    }
+
+    .info-text {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <h1>DOM Element Inspector</h1>
+
+  <div class="status info" id="statusMessage">
+    Bir sayfada tıkladığınız elementleri ve dinamik değişiklikleri kaydetmek için "Kayıt Başlat" düğmesine tıklayın.
+  </div>
+
+  <div class="controls">
+    <button id="startRecording">Kayıt Başlat</button>
+    <button id="stopRecording" class="stop" disabled>Kayıt Durdur</button>
+  </div>
+
+  <div class="stats" id="statsContainer" style="display: none;">
+    <p><strong>Toplanan elementler:</strong> <span id="elementCount">0</span></p>
+
+    <div class="export-options">
+      <div class="export-format">
+        <input type="radio" id="formatJson" name="exportFormat" value="json" checked>
+        <label for="formatJson">JSON</label>
+      </div>
+
+      <div class="export-format">
+        <input type="radio" id="formatTxt" name="exportFormat" value="txt">
+        <label for="formatTxt">TXT</label>
+      </div>
+    </div>
+
+    <button id="exportData" class="export">Dışa Aktar</button>
+  </div>
+
+  <p class="info-text">
+    Bu eklenti, web sayfalarında tıkladığınız elementlerin ve dinamik olarak oluşturulan içeriklerin (modals, popups, vb.) ID, class ve diğer özelliklerini kaydeder. Bu verileri daha sonra JS ve DOM manipülasyonları için kullanabilirsiniz.
+  </p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
