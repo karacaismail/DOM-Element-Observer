@@ -1,7 +1,7 @@
 ```markdown
-# �️ DOM Element Observer
+# DOM Element Observer
 
-**DOM Element Observer**, web sayfalarındaki DOM (Document Object Model) elementlerini incelemenize, tıklanan elementleri, fareyle üzerine gelinenleri ve dinamik içerikleri kaydetmenize olanak tanıyan, geliştiricilere yönelik, sayfa içi bir panel ile çalışan bir Chrome eklentisidir.
+*DOM Element Observer*, web sayfalarındaki DOM (Document Object Model) elementlerini incelemenize, tıklanan elementleri, fareyle üzerine gelinenleri ve dinamik içerikleri kaydetmenize olanak tanıyan, geliştiricilere yönelik, sayfa içi bir panel ile çalışan bir Chrome eklentisidir.
 
 Bu eklenti, özellikle web otomasyonu, test senaryoları oluşturma veya DOM yapısını derinlemesine analiz etme ihtiyacı duyan geliştiriciler için tasarlanmıştır.
 
@@ -9,34 +9,33 @@ Bu eklenti, özellikle web otomasyonu, test senaryoları oluşturma veya DOM yap
 *(Not: Yukarıdaki satıra projenize bir ekran görüntüsü ekleyip yolunu belirtmeniz önerilir)*
 
 ##  Temel Özellikler
-
-* ** Etkileşim Kaydı:** Tıklanan elementlerin ID, class, XPath, CSS seçicisi, text içeriği ve diğer özniteliklerini detaylı olarak kaydeder.
-* ** Hover ile İnceleme:** Kayıt modundayken fare ile üzerine gelinen elementi anlık olarak vurgular ve bilgilerini gösterir (kaydetmek için tıklamanız gerekir).
-* ** Dinamik İçerik Takibi:** Sayfada dinamik olarak yüklenen veya değişen elementleri (modallar, pop-up'lar, AJAX ile yüklenen içerikler vb.) yakalar.
-* ** Kayıt Kontrolü:** Kullanıcı dostu sayfa içi panel üzerinden kaydı kolayca başlatın, durdurun ve yönetin.
-* ** Sayfa İçi Kontrol Paneli:**
+* Etkileşim Kaydı:* Tıklanan elementlerin ID, class, XPath, CSS seçicisi, text içeriği ve diğer özniteliklerini detaylı olarak kaydeder.*
+* Hover ile İnceleme:* Kayıt modundayken fare ile üzerine gelinen elementi anlık olarak vurgular ve bilgilerini gösterir (kaydetmek için tıklamanız gerekir).*
+* Dinamik İçerik Takibi:* Sayfada dinamik olarak yüklenen veya değişen elementleri (modallar, pop-up'lar, AJAX ile yüklenen içerikler vb.) yakalar.*
+* Kayıt Kontrolü:* Kullanıcı dostu sayfa içi panel üzerinden kaydı kolayca başlatın, durdurun ve yönetin.*
+* Sayfa İçi Kontrol Paneli:*
     * Web sayfasının üzerinde konumlanan, sürüklenip bırakılabilen arayüz.
     * Paneli daraltma, genişletme ve kapatma seçenekleri.
-    * Anlık durum bilgisi ve toplanan element sayısı gösterimi.
-* ** Veri Dışa Aktarma:** Toplanan element verilerini **JSON** veya **TXT** formatlarında dışa aktarın.
-* ** Veri Önizleme ve Kopyalama:** Dışa aktarma öncesinde toplanan verileri formatlı bir şekilde modal pencerede görüntüleyin, text içeriğini gösterip/gizleyin ve kolayca panoya kopyalayın.
+    * Anlık durum bilgisi ve toplanan element sayısı gösterimi.*
+* Veri Dışa Aktarma:* Toplanan element verilerini *JSON* veya *TXT* formatlarında dışa aktarın.*
+* Veri Önizleme ve Kopyalama:* Dışa aktarma öncesinde toplanan verileri formatlı bir şekilde modal pencerede görüntüleyin, text içeriğini gösterip/gizleyin ve kolayca panoya kopyalayın.
 
 ##  Hedef Kitle
-
-* ** Web Geliştiricileri:** DOM yapısını analiz etmek, hızlıca seçiciler (selector) bulmak, dinamik değişiklikleri izlemek ve otomasyon scriptleri için veri toplamak isteyenler.
-* **🧪 Kalite Güvence (QA) Uzmanları / Test Mühendisleri:** Otomasyon testleri (Selenium, Puppeteer, Playwright vb.) için güvenilir element tanımlayıcıları (XPath, CSS) elde etmek ve test senaryolarını oluşturmak isteyenler.
-* ** UI/UX Analistleri ve Tasarımcılar:** Sayfa yapısını ve elementlerin özelliklerini detaylıca incelemek isteyenler.
+*
+* Web Geliştiricileri:* DOM yapısını analiz etmek, hızlıca seçiciler (selector) bulmak, dinamik değişiklikleri izlemek ve otomasyon scriptleri için veri toplamak isteyenler.
+* *🧪 Kalite Güvence (QA) Uzmanları / Test Mühendisleri:* Otomasyon testleri (Selenium, Puppeteer, Playwright vb.) için güvenilir element tanımlayıcıları (XPath, CSS) elde etmek ve test senaryolarını oluşturmak isteyenler.*
+* UI/UX Analistleri ve Tasarımcılar:* Sayfa yapısını ve elementlerin özelliklerini detaylıca incelemek isteyenler.
 
 ## 🚀 Nasıl Kullanılır?
 
-1.  **Paneli Aç/Kapat:** Chrome araç çubuğundaki eklenti ikonuna (`🧩`) tıklayarak sayfa içi kontrol panelini açın veya kapatın.
-2.  **Kaydı Başlat:** Paneldeki `Kayıt Başlat` düğmesine tıklayın.
-3.  **Elementlerle Etkileşim Kurun:**
-    * İncelemek istediğiniz elementlere **tıklayın**. Tıklanan her elementin bilgileri kaydedilecektir.
-    * Fareyi elementlerin **üzerine getirerek** anlık bilgi alın (kayıt için tıklama gereklidir).
+1.  *Paneli Aç/Kapat:* Chrome araç çubuğundaki eklenti ikonuna (`🧩`) tıklayarak sayfa içi kontrol panelini açın veya kapatın.
+2.  *Kaydı Başlat:* Paneldeki `Kayıt Başlat` düğmesine tıklayın.
+3.  *Elementlerle Etkileşim Kurun:*
+    * İncelemek istediğiniz elementlere *tıklayın*. Tıklanan her elementin bilgileri kaydedilecektir.
+    * Fareyi elementlerin *üzerine getirerek* anlık bilgi alın (kayıt için tıklama gereklidir).
     * Dinamik içeriklerin (modal, açılır menü vb.) yüklenmesini tetikleyin ve içlerindeki elementlere tıklayın.
-4.  **Kaydı Durdur:** Paneldeki `Kayıt Durdur` düğmesine tıklayın.
-5.  **Veriyi İncele ve Dışa Aktar:**
+4.  *Kaydı Durdur:* Paneldeki `Kayıt Durdur` düğmesine tıklayın.
+5.  *Veriyi İncele ve Dışa Aktar:*
     * Toplanan toplam element sayısını panelde görün.
     * İstediğiniz formatı (`JSON` veya `TXT`) seçin.
     * `Dışa Aktar` düğmesine tıklayın. Veriler seçtiğiniz formatta indirilecektir.
@@ -173,8 +172,8 @@ Bu eklenti bir geliştirici aracı olduğu için Chrome Web Mağazası'nda yayı
 
 1.  Bu repoyu bilgisayarınıza klonlayın veya ZIP olarak indirin ve dosyaları bir klasöre çıkarın.
 2.  Google Chrome'u açın ve adres çubuğuna `chrome://extensions` yazıp Enter'a basın.
-3.  Sağ üst köşedeki **"Geliştirici modu"** anahtarını etkinleştirin.
-4.  Sol üstteki **"Paketlenmemiş öğe yükle"** düğmesine tıklayın.
+3.  Sağ üst köşedeki *"Geliştirici modu"* anahtarını etkinleştirin.
+4.  Sol üstteki *"Paketlenmemiş öğe yükle"* düğmesine tıklayın.
 5.  Eklenti dosyalarının bulunduğu klasörü (bu `README.md` dosyasının olduğu ana klasörü) seçin.
 6.  Eklenti yüklenecek ve Chrome araç çubuğunda `🧩` ikonu görünecektir. Artık kullanmaya başlayabilirsiniz!
 
@@ -182,20 +181,20 @@ Bu eklenti bir geliştirici aracı olduğu için Chrome Web Mağazası'nda yayı
 
 Eklentiyi daha da geliştirmek için planlanan bazı özellikler şunlardır:
 
-* **[ ] Gelişmiş Filtreleme/Arama:** Toplanan elementler listesinde tag adı, class, ID veya text içeriğine göre filtreleme ve arama yapabilme.
-* **[ ] Otomatik Kod Üretimi:** Seçilen element(ler) için popüler otomasyon kütüphanelerine (Selenium, Puppeteer, Playwright) uygun seçici kod parçacıklarını (örn. `findElement(By.xpath('...'))`) otomatik oluşturma.
-* **[ ] Görsel Alan Seçimi:** Sayfada bir alanı fare ile seçerek o bölgedeki tüm elementleri veya belirli tipteki elementleri toplu olarak kaydetme.
-* **[ ] Kullanıcı Eylemi Kaydı (Step Recorder):** Sadece tıklamaları değil, aynı zamanda input alanlarına yazı yazma gibi temel kullanıcı eylemlerini de bir senaryo olarak kaydetme ve dışa aktarma.
-* **[ ] DOM Karşılaştırma:** Farklı zamanlarda yapılan kayıtlar arasında DOM yapısındaki değişiklikleri vurgulayan bir karşılaştırma aracı.
-* **[ ] Özelleştirme Seçenekleri:** Kaydedilecek öznitelikleri (ID, class, XPath vb.) seçme veya panel görünümünü özelleştirme imkanı.
-* **[ ] Klavye Kısayolları:** Paneli açma/kapama, kaydı başlatma/durdurma gibi sık kullanılan işlevler için klavye kısayolları tanımlama.
+*[ ] Gelişmiş Filtreleme/Arama:* Toplanan elementler listesinde tag adı, class, ID veya text içeriğine göre filtreleme ve arama yapabilme.
+*[ ] Otomatik Kod Üretimi:* Seçilen element(ler) için popüler otomasyon kütüphanelerine (Selenium, Puppeteer, Playwright) uygun seçici kod parçacıklarını (örn. `findElement(By.xpath('...'))`) otomatik oluşturma.
+*[ ] Görsel Alan Seçimi:* Sayfada bir alanı fare ile seçerek o bölgedeki tüm elementleri veya belirli tipteki elementleri toplu olarak kaydetme.
+*[ ] Kullanıcı Eylemi Kaydı (Step Recorder):* Sadece tıklamaları değil, aynı zamanda input alanlarına yazı yazma gibi temel kullanıcı eylemlerini de bir senaryo olarak kaydetme ve dışa aktarma.
+*[ ] DOM Karşılaştırma:* Farklı zamanlarda yapılan kayıtlar arasında DOM yapısındaki değişiklikleri vurgulayan bir karşılaştırma aracı.
+*[ ] Özelleştirme Seçenekleri:* Kaydedilecek öznitelikleri (ID, class, XPath vb.) seçme veya panel görünümünü özelleştirme imkanı.
+*[ ] Klavye Kısayolları:* Paneli açma/kapama, kaydı başlatma/durdurma gibi sık kullanılan işlevler için klavye kısayolları tanımlama.
 
 ## 🤝 Katkıda Bulunma
 
 Bu proje açık kaynaklıdır ve katkılarınız değerlidir! 💖
 
-* Hata bildirimi veya özellik önerisi için lütfen bir **Issue** açın.
-* Koda doğrudan katkıda bulunmak isterseniz, lütfen projeyi **Fork**'layın, değişikliklerinizi yapın ve bir **Pull Request** gönderin.
+* Hata bildirimi veya özellik önerisi için lütfen bir *Issue* açın.
+* Koda doğrudan katkıda bulunmak isterseniz, lütfen projeyi *Fork*'layın, değişikliklerinizi yapın ve bir *Pull Request* gönderin.
 
 1.  Projeyi Fork'layın.
 2.  Yeni bir özellik dalı oluşturun (`git checkout -b feature/yeni-ozellik`).
@@ -205,5 +204,5 @@ Bu proje açık kaynaklıdır ve katkılarınız değerlidir! 💖
 
 ##  Lisans
 
-Bu proje [MIT Lisansı](LICENSE.md) altında lisanslanmıştır. (Projenize bir `LICENSE.md` dosyası eklemeyi unutmayın.)
+Bu proje [MIT Lisansı](LICENSE.md) altında lisanslanmıştır.
 ```
